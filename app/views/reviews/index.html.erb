@@ -1,7 +1,15 @@
 <h1>Reviews of <%= @restaurant.name %></h1>
 
-<% @reviews.each do |review| %>
-  <ul>
-    <li><%= review.content %></li>
-  </ul>
-<% end  %>
+  <% if @restaurant.reviews[0].nil?  %>
+    <%= "no reviews yet" %>
+  <% else  %>
+    <% @reviews.each do |review| %>
+      <ul>
+        <li><%= review.content %></li>
+      </ul>
+    <% end  %>
+  <% end %>
+
+  <%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary"  %>
+
+  <%= link_to "Back to restaurant", restaurant_path(@restaurant), class: "btn btn-primary"  %>

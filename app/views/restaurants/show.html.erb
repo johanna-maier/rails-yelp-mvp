@@ -1,3 +1,20 @@
 <h2>Show one Restaurant</h2>
+<ul>
+  <li><%= @restaurant.name %></li>
+  <li><%= @restaurant.address %></li>
+  <li>
+    <% if @restaurant.phone_number  %>
+      <%= @restaurant.phone_number %>
+    <% else  %>
+      <%= "no phone number given" %>
+    <% end %>
 
-<%= @restaurant %>
+  </li>
+  <li><%= @restaurant.category %></li>
+
+
+
+<hr>
+  <%= link_to "See reviews", restaurant_reviews_path(@restaurant), class: "btn btn-primary" %>
+  <%= link_to "Back to all restaurants", restaurants_path, class: "btn btn-primary" %>
+</ul>

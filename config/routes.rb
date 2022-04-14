@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # post 'restaurants', to: 'restaurants#create'
   # get 'restaurants/:id', to: 'restaurants#show', as: 'restaurant'
 
+  root to: 'restaurants#index'
+
   resources :restaurants, only: [ :index, :new, :create, :show ] do
     resources :reviews, only: [ :index, :new, :create ]
   end
